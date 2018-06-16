@@ -5,7 +5,7 @@
 
     <div class="container py-3">
 
-
+        @if(Auth::check())
 
         <div class="col-md-8 order-md-1">
             <h4 class="mb-3">Dodaj nową rywazlizację</h4>
@@ -35,6 +35,10 @@
                 <button class="btn btn-primary btn-lg btn-block" type="submit">Utwórz rywalizację</button>
             </form>
         </div>
+
+            @else
+            <h1 class="alert-danger">Musisz się zalogować</h1>
+            @endif
     </div>
 
 @endsection

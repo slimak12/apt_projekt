@@ -13,16 +13,16 @@ class DatabaseSeeder extends Seeder
     {
         $user = new \App\User();
         $user->first_name = 'Maciej';
-        $user->last_name = "Kosiedowski";
-        $user->password =  '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm';
-        $user->email = 'kosiedowskimaciej@gmail.com';
+        $user->last_name = "Kos";
+        $user->password =  '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm'; // deafult laravel pass secret
+        $user->email = 'ksomac@gmail.com';
         $user->save();
 
         $user = new \App\User();
         $user->first_name = 'Jakub';
-        $user->last_name = "Nadolski";
-        $user->password =  '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm';
-        $user->email = 'jakubnadoslki@gmail.com';
+        $user->last_name = "Nad";
+        $user->password =  '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm';  // deafult laravel pass secret
+        $user->email = 'jbn@gmail.com'; 
         $user->save();
         factory(App\User::class,20)->create();
 

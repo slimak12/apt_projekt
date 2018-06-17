@@ -27,7 +27,7 @@
 
                     <br>
                     <p class="mb-4"> Status:  @if($contest->active) <i class="alert-success"> Zawody w trakcie</i> @else <i class="alert-info"> Zawody ukończone</i> @endif
-                    
+
                     </p>
 
 

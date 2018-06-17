@@ -12,7 +12,9 @@
 
                     <br>
                     <br>
-                    <a href="#" class="float-sm-left"><button type="button" class="btn btn-primary">Dołącz do zawodów</button></a>
+                    <a href="{{route('add_to_contest', $contest->id)}}" class="float-sm-left"><button type="button" class="btn btn-primary" @if(!Auth::user()) disabled @endif >@if(!Auth::user()) Musisz się zalogować, aby dołączyć @else Dołącz do zawodów @endif </button></a>
+
+
                 </div>
                 <div class="col-md-5 px-0">
                    <img class="rounded " style="max-width: 500px;" src="{{$contest->photo->path}}">
@@ -34,9 +36,11 @@
                     <th scope="col">Uczestnik</th>
                     <th scope="col">Wynik</th>
                     <th scope="col">Komentarz do wyniku</th>
+                    @if(Auth::user())
                     @if(Auth::user()->id == $contest->owner->id)
                         <th scope="col">Działania na użytkowniku</th>
                         @endif
+                    @endif
 
                 </tr>
                 </thead>
@@ -60,6 +64,7 @@
                             {{$user->result->score_result}} {{$user->result->unit}}
                                 @endif
                     @else
+                            @if(Auth::user())
                             @if(Auth::user()->id == $contest->owner->id)
 
                                 <form action="{{ route('update_result') }}" method="POST" >
@@ -73,10 +78,14 @@
                             @else
                                 -
                             @endif
+                            @else
+                                -
+                            @endif
 
                     @endif</td>
                     <td>@if($user->result){{$user->result->annotation}}
                         @else
+                            @if(Auth::user())
                             @if(Auth::user()->id == $contest->owner->id)
                                 <form action="{{ route('update_result') }}" method="POST" >
                                     @csrf
@@ -89,13 +98,18 @@
                             @else
                                 -
                             @endif
-                        @endif</td>
 
+                                @else
+                                    -
+                                @endif
+                        @endif</td>
+                    @if(Auth::user())
                     @if(Auth::user()->id == $contest->owner->id)
                         <td>
                             <a href="{{route('accept_user', [$contest->id, $user->user->id])}}"><button type="button" class="btn btn-primary">Zmień stan </button></a>
 
                         </td>
+                    @endif
                     @endif
 
                 </tr>

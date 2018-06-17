@@ -26,12 +26,17 @@
                     <p class="mb-4">{{$contest->desc}}</p>
 
                     <br>
-                    <p class="mb-4"> Status:  @if($contest->active) <i class="alert-success"> Zawody w trakcie</i> @else <i class="alert-info"> Zawody ukończone</i> @endif</p>
+                    <p class="mb-4"> Status:  @if($contest->active) <i class="alert-success"> Zawody w trakcie</i> @else <i class="alert-info"> Zawody ukończone</i> @endif
+                    
+                    </p>
 
 
                     <p class="mb-1">
                     <small>Liczba zarejestrowanych użytkowników: {{$contest->users_count}}</small>
+
                     </p>
+
+
                 </div>
 
             </div>

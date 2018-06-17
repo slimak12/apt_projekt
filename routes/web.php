@@ -22,3 +22,5 @@ Route::resource('/contest', 'ContestController');
 Route::get('/accept_user/{contest_id}/{user_id}', 'ContestController@accept_user')->name('accept_user');
 
 Route::post('/save_user_result', 'ContestController@update_result')->name('update_result');
+
+Route::get('/add_to_contest/{contest_id}','ContestController@add_to_contest' )->name('add_to_contest');

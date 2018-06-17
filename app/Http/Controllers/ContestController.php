@@ -65,6 +65,14 @@ class ContestController extends Controller
 
     }
 
+    public function add_to_contest($contest_id){
+        $contest_user = new ContestUser();
+        $contest_user->user_id = Auth::id();
+        $contest_user->contest_id = $contest_id;
+        $contest_user->save();
+        return redirect()->route('contest.show', $contest_id);
+    }
+
     /**
      * Display the specified resource.
      *

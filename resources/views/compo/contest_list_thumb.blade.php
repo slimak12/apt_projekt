@@ -16,7 +16,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
 
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Dołącz</button>
+                                <a href="{{route('add_to_contest', $contest->id)}}" > <button type="button" class="btn btn-sm btn-outline-secondary">@if(!Auth::user()) disabled @endif >@if(!Auth::user()) Musisz się zalogować, aby dołączyć @else Dołącz @endif</button></a>
                             </div>
                             <small class="text-muted">12 hours ago</small>
                         </div>

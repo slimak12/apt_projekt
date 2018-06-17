@@ -19,7 +19,9 @@ class ContestController extends Controller
     public function index()
     {
         //
-        $contests = Contest::where('id','>', 0)->with('owner')->with('photo')->withCount('users')->get();
+        $contests = Contest::where('id','>', 0)->with('owner')->with('photo')->withCount('users')
+            ->orderBy('id', 'desc')
+            ->get();
         //dd($contests);
         return view('contest', compact('contests'));
     }

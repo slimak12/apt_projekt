@@ -21,7 +21,9 @@ class HomeController extends Controller
     public function index()
     {
 
-        $contests = Contest::where('active', 1)->with('owner')->with('photo')->get();
+        $contests = Contest::where('active', 1)->with('owner')->with('photo')
+            ->orderBy('id', 'desc')
+            ->get();
 
         return view('index', compact('contests'));
     }
